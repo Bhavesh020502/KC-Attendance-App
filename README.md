@@ -1,4 +1,4 @@
-# pict_mis
+# kc_attendance_app
 
 A new Flutter project.
 

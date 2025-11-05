@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pict_mis/components/text_field_container.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/components/text_field_container.dart';
+import 'package:kc_attendance/constants.dart';
 
 class RoundedInputField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
   const RoundedInputField({
-    Key? key,
+    super.key,
     required this.hintText,
     this.icon = Icons.person,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

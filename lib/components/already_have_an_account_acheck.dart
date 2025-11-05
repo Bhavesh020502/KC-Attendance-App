@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/constants.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
   final VoidCallback press;
   const AlreadyHaveAnAccountCheck({
-    Key? key,
+    super.key,
     this.login = true,
     required this.press,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

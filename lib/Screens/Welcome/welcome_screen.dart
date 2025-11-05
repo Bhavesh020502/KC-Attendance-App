@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pict_mis/Screens/Welcome/components/body.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Body(),
+      body: Center(
+        child: Text(
+          "Welcome to KC Attendance App",
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
     );
   }
 }

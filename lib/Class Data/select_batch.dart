@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pict_mis/Subjects.dart';
+import 'package:kc_attendance/Subjects.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../class.dart';
 import '../constants.dart';
@@ -10,7 +10,7 @@ class SelectBatch extends StatefulWidget {
   final Subjects Class;
 
   // ignore: non_constant_identifier_names
-  const SelectBatch({Key? key, required this.Class}) : super(key: key);
+  const SelectBatch({super.key, required this.Class});
 
   @override
   _SelectBatchState createState() => _SelectBatchState();
@@ -46,8 +46,8 @@ class _SelectBatchState extends State<SelectBatch> {
           ),
           items: _items.map((batch) {
             return DropdownMenuItem<String>(
-              child: Text(batch),
               value: batch,
+              child: Text(batch),
             );
           }).toList(),
           onChanged: (value) => setState(() {

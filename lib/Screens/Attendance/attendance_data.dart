@@ -1,14 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/constants.dart';
 
 class viewAttendance extends StatefulWidget {
   DocumentSnapshot document;
   String subjectDoc;
 
-  viewAttendance({Key? key, required this.document, required this.subjectDoc})
-      : super(key: key);
+  viewAttendance({super.key, required this.document, required this.subjectDoc});
 
   @override
   State<viewAttendance> createState() => _viewAttendanceState();
@@ -140,7 +139,7 @@ class _viewAttendanceState extends State<viewAttendance> {
   Widget absentOverview() {
     return Expanded(
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         height: 250.0,
         width: 180.0,
         decoration: BoxDecoration(

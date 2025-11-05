@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pict_mis/Subjects.dart';
-import 'package:pict_mis/Class%20Data/select_batch.dart';
+import 'package:kc_attendance/Subjects.dart';
+import 'package:kc_attendance/Class%20Data/select_batch.dart';
 import '../class.dart';
 import '../constants.dart';
 
@@ -8,7 +8,7 @@ class SelectSubject extends StatefulWidget {
   // ignore: non_constant_identifier_names
   final Subjects Class;
   // ignore: non_constant_identifier_names
-  const SelectSubject({Key? key, required this.Class}) : super(key: key);
+  const SelectSubject({super.key, required this.Class});
 
   @override
   _SelectSubjectState createState() => _SelectSubjectState();
@@ -46,8 +46,8 @@ class _SelectSubjectState extends State<SelectSubject> {
           }),
           items: _items.map((subject) {
             return DropdownMenuItem<String>(
-              child: Text(subject),
               value: subject,
+              child: Text(subject),
             );
           }).toList(),
         ),

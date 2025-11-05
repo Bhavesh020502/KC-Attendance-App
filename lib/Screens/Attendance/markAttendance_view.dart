@@ -3,14 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tags/flutter_tags.dart';
 import 'package:intl/intl.dart';
-import 'package:pict_mis/Screens/Attendance/attendance_view.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/Screens/Attendance/attendance_view.dart';
+import 'package:kc_attendance/constants.dart';
 
 // DocumentSnapshot? snapshot;
 
 class MarkAttendance extends StatefulWidget {
   String subjectDoc;
-  MarkAttendance({Key? key, required this.subjectDoc}) : super(key: key);
+  MarkAttendance({super.key, required this.subjectDoc});
 
   @override
   State<MarkAttendance> createState() => _MarkAttendanceState();
@@ -27,7 +27,7 @@ class _MarkAttendanceState extends State<MarkAttendance> {
   final user = FirebaseAuth.instance.currentUser;
   FirebaseFirestore db = FirebaseFirestore.instance;
 
-  fetchDocs() async {
+  Future<void> fetchDocs() async {
     DocumentSnapshot pathData = await FirebaseFirestore.instance
         .collection('user')
         .doc(user?.uid)
@@ -76,7 +76,7 @@ class _MarkAttendanceState extends State<MarkAttendance> {
             children: <Widget>[
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: kPrimaryColor,
+                    backgroundColor: kPrimaryColor,
                   ),
                   onPressed: () async {
                     showDatePicker(
@@ -111,8 +111,8 @@ class _MarkAttendanceState extends State<MarkAttendance> {
                   hint: const Text("Select"),
                   items: _items.map((val) {
                     return DropdownMenuItem<String>(
-                      child: Text(val),
                       value: val,
+                      child: Text(val),
                     );
                   }).toList(),
                   onChanged: (value) => setState(() {

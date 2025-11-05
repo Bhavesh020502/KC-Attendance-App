@@ -2,16 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:pict_mis/Subjects.dart';
+import 'package:kc_attendance/Subjects.dart';
 
 class MyFlexibleAppbar extends StatefulWidget {
   final Subjects subject;
   String subjectDoc;
   MyFlexibleAppbar({
-    Key? key,
+    super.key,
     required this.subject,
     required this.subjectDoc,
-  }) : super(key: key);
+  });
 
   @override
   State<MyFlexibleAppbar> createState() => _MyFlexibleAppbarState();
@@ -45,9 +45,9 @@ class _MyFlexibleAppbarState extends State<MyFlexibleAppbar> {
         .collection('attendance')
         .snapshots()
         .listen((snapshot) {
-      snapshot.docs.forEach((element) {
+      for (var element in snapshot.docs) {
         totalPresent = totalPresent + element.get('presentNo');
-      });
+      }
       // print(totalPresent);
       // print(count);
       // print(lectureCount);
@@ -140,7 +140,7 @@ class _MyFlexibleAppbarState extends State<MyFlexibleAppbar> {
                             ? Colors.red.shade100
                             : Colors.yellow.shade100
                         : Colors.green.shade100,
-                    footer: Text(
+                    footer: const Text(
                       'Overall Attendance',
                       style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),

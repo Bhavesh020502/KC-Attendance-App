@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
   final VoidCallback press;
   final Color color, textColor;
   const RoundedButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.press,
     this.color = kPrimaryColor,
     this.textColor = Colors.white,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +31,16 @@ class RoundedButton extends StatelessWidget {
 
   Widget newElevatedButton() {
     return ElevatedButton(
-      child: Text(
-        text,
-        style: TextStyle(color: textColor),
-      ),
       style: ElevatedButton.styleFrom(
-          primary: color,
+          backgroundColor: color,
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           textStyle: TextStyle(
               color: textColor, fontSize: 14, fontWeight: FontWeight.w500)),
       onPressed: press,
+      child: Text(
+        text,
+        style: TextStyle(color: textColor),
+      ),
     );
   }
 }

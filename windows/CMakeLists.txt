@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(pict_mis LANGUAGES CXX)
+project(kc_attendance LANGUAGES CXX)
 
-set(BINARY_NAME "pict_mis")
+set(BINARY_NAME "kc_attendance")
 
 cmake_policy(SET CMP0063 NEW)
 

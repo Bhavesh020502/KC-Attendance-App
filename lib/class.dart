@@ -1,4 +1,4 @@
-import 'package:pict_mis/Subjects.dart';
+import 'package:kc_attendance/Subjects.dart';
 
 // var SE_even = {
 //   'TH': [
@@ -95,7 +95,7 @@ var BE = {
   'PR': ['ABC', 'XYZ']
 };
 
-subjectsDropDown(Subjects s) {
+List subjectsDropDown(Subjects s) {
   List item = [];
   if (s.year == 'SE') {
     SE.forEach((key, value) {
@@ -119,7 +119,7 @@ subjectsDropDown(Subjects s) {
 }
 
 // ignore: non_constant_identifier_names
-BatchDropDown(Subjects s) {
+List<String> BatchDropDown(Subjects s) {
   if (s.year == 'SE') {
     if (SE[s.subject] == 'TH') {
       return batch_th.sublist(4, 8);

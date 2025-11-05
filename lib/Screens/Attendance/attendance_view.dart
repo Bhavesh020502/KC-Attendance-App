@@ -1,19 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pict_mis/Screens/Attendance/attendance_data.dart';
-import 'package:pict_mis/Screens/Attendance/checkAttendance_view.dart';
-import 'package:pict_mis/Screens/Attendance/flexibleappbar.dart';
-import 'package:pict_mis/Screens/Attendance/markAttendance_view.dart';
-import 'package:pict_mis/Subjects.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/Screens/Attendance/attendance_data.dart';
+import 'package:kc_attendance/Screens/Attendance/checkAttendance_view.dart';
+import 'package:kc_attendance/Screens/Attendance/flexibleappbar.dart';
+import 'package:kc_attendance/Screens/Attendance/markAttendance_view.dart';
+import 'package:kc_attendance/Subjects.dart';
+import 'package:kc_attendance/constants.dart';
 
 // ignore: camel_case_types, must_be_immutable
 class attendance extends StatelessWidget {
   final Subjects subject;
   String subjectDoc;
-  attendance({Key? key, required this.subject, required this.subjectDoc})
-      : super(key: key);
+  attendance({super.key, required this.subject, required this.subjectDoc});
 
   final user = FirebaseAuth.instance.currentUser;
 
@@ -57,11 +56,11 @@ class attendance extends StatelessWidget {
                             child: CircularProgressIndicator(),
                           );
                         }
-                        if ((snapshot.data! as QuerySnapshot).docs.isEmpty) {
-                          return Center(
+                        if ((snapshot.data!).docs.isEmpty) {
+                          return const Center(
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const <Widget>[
+                                children: <Widget>[
                                   Text('No Previous data'),
                                 ]),
                           );
@@ -69,11 +68,11 @@ class attendance extends StatelessWidget {
 
                         return ListView.builder(
                             itemCount:
-                                (snapshot.data! as QuerySnapshot).docs.length,
+                                (snapshot.data!).docs.length,
                             itemBuilder: (BuildContext context, int index) =>
                                 buildAttendanceCard(
                                   context,
-                                  (snapshot.data! as QuerySnapshot).docs[index],
+                                  (snapshot.data!).docs[index],
                                 ));
                       })
                 ]),

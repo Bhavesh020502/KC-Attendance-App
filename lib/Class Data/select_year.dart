@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pict_mis/Subjects.dart';
-import 'package:pict_mis/Class%20Data/select_subject.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/Subjects.dart';
+import 'package:kc_attendance/Class%20Data/select_subject.dart';
+import 'package:kc_attendance/constants.dart';
 
 class SelectYear extends StatefulWidget {
   // ignore: non_constant_identifier_names
   final Subjects Class;
   // ignore: non_constant_identifier_names
-  const SelectYear({Key? key, required this.Class}) : super(key: key);
+  const SelectYear({super.key, required this.Class});
 
   @override
   _SelectYearState createState() => _SelectYearState();
@@ -41,8 +41,8 @@ class _SelectYearState extends State<SelectYear> {
           }),
           items: items.map((year) {
             return DropdownMenuItem<String>(
-              child: Text(year),
               value: year,
+              child: Text(year),
             );
           }).toList(),
         ),

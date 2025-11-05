@@ -3,16 +3,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:pict_mis/class.dart';
-import 'package:pict_mis/constants.dart';
+import 'package:kc_attendance/class.dart';
+import 'package:kc_attendance/constants.dart';
 
 import '../../Subjects.dart';
 
 class CheckAttendance extends StatefulWidget {
   String subjectDoc;
   final Subjects subject;
-  CheckAttendance({Key? key, required this.subjectDoc, required this.subject})
-      : super(key: key);
+  CheckAttendance({super.key, required this.subjectDoc, required this.subject});
 
   @override
   State<CheckAttendance> createState() => _CheckAttendanceState();
@@ -158,12 +157,12 @@ class _CheckAttendanceState extends State<CheckAttendance> {
         .collection('attendance')
         .snapshots()
         .listen((snapshot) {
-      snapshot.docs.forEach((element) {
+      for (var element in snapshot.docs) {
         if (element.get(roll) == 1) {
           present = present + 1;
           print(present);
         }
-      });
+      }
       setState(() {
         totalLectures = snapshot.docs.length;
         print(totalLectures);
